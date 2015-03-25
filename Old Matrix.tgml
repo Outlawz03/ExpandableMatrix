@@ -2,14 +2,13 @@
 
 <!--[DocumentInformation]
 Created: 2012-11-12 15:15
-Modified: 2015-03-25 13:43
+Modified: 2015-03-25 14:01
 -->
 <?tgml version="1.21"?><Tgml Author="MRB" ComponentCounter="52"
     GridSize="5" Height="800" LayerCounter="9"
     Model="ATB-CLG-PF-mHWRH-PI-SXB" Version="130514" Width="1600">
     <Component Clip="False" ContentHeight="100" ContentWidth="300.0"
-        Height="100.0" Id="Matrix" Left="1260.0" Top="120.0"
-        Version="2.0" Width="300.0">
+        Height="100.0" Id="Matrix" Left="230.0" Top="96.0" Version="2.0" Width="300.0">
         <Component Clip="False" ContentHeight="40" ContentWidth="300.0"
             Height="40" Id="Status" Left="0.0" Top="0.0" Width="300.0" initiallyExpanded="y">
             <Expose ExposedAttribute="Id" Name="Matrix Title"/>
