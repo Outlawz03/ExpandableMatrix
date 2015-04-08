@@ -2,21 +2,23 @@
 
 <!--[DocumentInformation]
 Created: 2012-11-12 15:15
-Modified: 2015-03-25 15:36
+Modified: 2015-04-08 18:27
 -->
 <?tgml version="1.21"?><Tgml Author="MRB" ComponentCounter="52"
     GridSize="5" Height="800" LayerCounter="9"
     Model="ATB-CLG-PF-mHWRH-PI-SXB" Version="130514" Width="1600">
     <Component Clip="False" ContentHeight="100" ContentWidth="300.0"
-        Height="100.0" Id="Matrix" Left="569.0" Top="130.0"
-        Version="2.0" Width="300.0">
+        Ctrl="matrixCtrl" Height="100.0" Id="Matrix" Left="569.0"
+        Model="matrix" Top="130.0" Version="2.0" Width="300.0">
         <Component Clip="False" ContentHeight="40" ContentWidth="300.0"
-            Height="40" Id="Status" Left="0.0" Top="0.0" Width="300.0">
+            Ctrl="groupCtrl" Height="40" Id="Status" Left="0.0"
+            Model="group1" Top="0.0" Width="300.0">
             <Expose ExposedAttribute="Id" Name="Matrix Title"/>
-            <Rectangle Fill="#FFFFFF" Height="80.0" Left="0.0"
-                Name="bgd" Opacity="1.0" RadiusX="5" RadiusY="5"
-                Stroke="#626469" StrokeDashArray="0.0" StrokeWidth="1.0"
-                Top="0.0" Visibility="Hidden" Width="300.0" initiallyExpanded="true"/>
+            <Rectangle Ctrl="bgdCtrl" Fill="#FFFFFF" Height="80.0"
+                Left="0.0" Model="group1bgd" Name="bgd" Opacity="1.0"
+                RadiusX="5" RadiusY="5" Stroke="#626469"
+                StrokeDashArray="0.0" StrokeWidth="1.0" Top="0.0"
+                Visibility="Hidden" Width="300.0" initiallyExpanded="true"/>
             <Component Clip="False" ContentHeight="40.0"
                 ContentWidth="300.0" Height="40.0" Left="0.0"
                 Name="header" Top="0.0" Width="300.0">
@@ -38,16 +40,17 @@ Modified: 2015-03-25 15:36
                         ExposedAttribute="Content" Name="Matrix Title"/>
                 </Text>
                 <Component Clip="False" ContentHeight="10.0"
-                    ContentWidth="20.0" Height="10.0" Left="270.0"
-                    Name="arrow" Top="15.0" Width="20.0">
+                    ContentWidth="20.0" Ctrl="arrowCtrl" Height="10.0"
+                    Left="270.0" Model="arrow" Name="arrow" Top="15.0" Width="20.0">
                     <Polygon Fill="#FFFFFF"
                         Points="0.0,0.0 20.0,0.0 10.0,10.0" Stroke="None"/>
                     <Rotate Angle="180"/>
                 </Component>
-                <TargetArea Body1_click="" Group1_click="" Height="40.0"
-                    Left="0.0" Name="Group1" Top="0.0" Width="300.0"/>
+                <TargetArea Height="40.0" Left="0.0" Name="group"
+                    Top="0.0" Width="300.0" arrow_click="" body_click=""
+                    group_click="" matrix_click=""/>
             </Component>
-            <Group Ctrl="BodyCtrl" Model="Body1" Name="body"
+            <Group Ctrl="bodyCtrl" Model="body" Name="body"
                 Visibility="Hidden" initiallyExpanded="true">
                 <Component Clip="False" ContentHeight="20"
                     ContentWidth="300" Group="Tl" Height="20.0"
@@ -190,7 +193,8 @@ Modified: 2015-03-25 15:36
                             </Component>
                         </Component>
                     </Group>
-                    <TargetArea Height="20.0" Name="UnitMd" Width="300.0">
+                    <TargetArea Height="20.0" Name="UnitMd"
+                        Width="300.0" row_click="">
                         <Expose ExposedAttribute="Name" Name="ValueBind"/>
                     </TargetArea>
                 </Component>
@@ -2174,9 +2178,33 @@ if (!Object.create) {
 }
 
 /**==========================================================================================
- * Body Ctrl
+ * Matrix Ctrl
  */
-var BodyCtrl = {
+var matrixCtrl = {
+ 	init: function(node) {
+ 		this.node = node;
+ 	},
+ 	
+ 	click: function(e) {
+ 	}
+ };
+ 
+ /**==========================================================================================
+ * Group Ctrl
+ */
+var groupCtrl = {
+ 	init: function(node) {
+ 		this.node = node;
+ 	},
+ 	
+ 	click: function(e) {
+ 	}
+ };
+
+/**==========================================================================================
+ * body Ctrl
+ */
+var bodyCtrl = {
  	init: function(node) {
  		this.node = node;
  		this.visibility = false;
@@ -2194,10 +2222,23 @@ var BodyCtrl = {
  	}
  };
  
+ /**==========================================================================================
+ * Arrow Ctrl
+ */
+var arrowCtrl = {
+ 	init: function(node) {
+ 		this.rotate = node.getElementsByTagName("Rotate").item(0);
+ 	},
+ 	
+ 	click: function(e) {
+ 		this.rotate.setAttribute("Angle", 0.0);
+ 	}
+ };
+ 
 /**==========================================================================================
  * Value Ctrl
  */
- var ValueCtrl = {
+ var valueCtrl = {
  	init: function(node) { 		
  		var type = "Text";
  		if(node.hasAttribute("Type")) {
@@ -2232,7 +2273,7 @@ var BodyCtrl = {
 /**==========================================================================================
  * Force Ctrl
  */
- var ForceCtrl = {
+ var forceCtrl = {
  	init: function(node) {
  		this.cmp = Object.create(Component);
  		this.cmp.init(node);
@@ -2274,7 +2315,7 @@ var BodyCtrl = {
 /**==========================================================================================
  * Alarm Ctrl
  */
-var AlarmCtrl = {
+var alarmCtrl = {
 	init: function(node) {
 		this.cmp = Object.create(Component);
  		this.cmp.init(node);
@@ -2303,7 +2344,7 @@ var AlarmCtrl = {
 /**==========================================================================================
  * Analog Control
  */
-var AnalogCtrl = {
+var analogCtrl = {
 	init: function(node) {
 		this.decimals = 0;
 		this.units = "";
@@ -2341,7 +2382,7 @@ var AnalogCtrl = {
 /**==========================================================================================
  * Digital Control
  */
-var DigitalCtrl = {
+var digitalCtrl = {
 	init: function(node) {
 		this.states = [];
 		
@@ -2362,7 +2403,7 @@ var DigitalCtrl = {
 /**==========================================================================================
  * Multi Control
  */
-var MultiCtrl = {
+var multiCtrl = {
 	init: function(node) {
 		this.states = [];
 		
@@ -2384,7 +2425,7 @@ var MultiCtrl = {
 /**==========================================================================================
  * Enum Control
  */
-var EnumCtrl = {
+var enumCtrl = {
 	init: function(node) {
 		this.states = [];
 		
@@ -2406,7 +2447,7 @@ var EnumCtrl = {
 /**==========================================================================================
  * Text Control
  */
-var TextCtrl = {
+var textCtrl = {
 	init: function(node) {
 		this.txt = Object.create(TextBox);
 		this.txt.init(node);		
@@ -2420,7 +2461,7 @@ var TextCtrl = {
  * Background Control
  */
  
-var BgdCtrl = {
+var bgdCtrl = {
 	init: function(node) {
 		if(node) {
 			if(node.hasAttribute("Stroke")) {
@@ -2435,7 +2476,7 @@ var BgdCtrl = {
 				this.alarmColor = node.getAttribute("AlarmColor");
 			}
 		
-			this.rct = Object.create(Rectangle);
+			this.rct = Object.create(rectangleObject);
 			this.rct.init(node);
 			
 			this.values = {};
@@ -2503,7 +2544,7 @@ var BgdCtrl = {
 /**==========================================================================================
  * Bind Object
  */
-var Bind = {
+var bindObject = {
 	init: function(node) {
 		this.node = node;
 		if(this.node) {
@@ -2557,7 +2598,7 @@ var Bind = {
 /**==========================================================================================
  * Bind Manager Object
  */
-var BindManager = {
+var bindManager = {
 	update: function(e) {
 		var bind = e.getTarget(),
 			dscr = String(bind.getAttribute("Description"));
@@ -2571,7 +2612,7 @@ var BindManager = {
 /**==========================================================================================
  * Animate Object
  */
-var Animate = {
+var animateObject = {
 	init: function(node) {
 		this.node = node;
 	},
@@ -2583,7 +2624,7 @@ var Animate = {
 /**==========================================================================================
  * Rectangle Object
  */
-var Rectangle = {
+var rectangleObject = {
 	init: function(node) {
 		this.node = node;
 	},
@@ -2604,7 +2645,7 @@ var Rectangle = {
 /**==========================================================================================
  * TextBox Object
  */
-var TextBox = {
+var textBoxObject = {
 	init: function(node) {
 		this.node = node;
 	},
@@ -2616,7 +2657,7 @@ var TextBox = {
 /**==========================================================================================
  * Component Object
  */
-var Component = {
+var componentObject = {
 	init: function(node) {
 		this.node = node;
 	},
