@@ -2,7 +2,7 @@
 
 <!--[DocumentInformation]
 Created: 2012-11-12 15:15
-Modified: 2015-04-09 14:39
+Modified: 2015-04-09 15:25
 -->
 <?tgml version="1.21"?><Tgml Author="MRB" ComponentCounter="52"
     GridSize="5" Height="800" LayerCounter="9"
@@ -65,9 +65,10 @@ Modified: 2015-04-09 14:39
                             X2="200" Y2="20"/>
                         <Line Name="Hline" Stroke="#626469" X1="0"
                             X2="300" Y1="20" Y2="20"/>
-                        <Rectangle Fill="#01FFFFFF" Height="20"
-                            Name="bgd" RadiusX="5" RadiusY="5"
-                            Stroke="None" Width="300"/>
+                        <Rectangle Ctrl="rowBgdCtrl" Fill="#9FA0A4"
+                            Height="20" Model="unitMdBgd" Name="bgd"
+                            RadiusX="5" RadiusY="5" Stroke="None"
+                            Visibility="Hidden" Width="300"/>
                         <TextBox FontFamily="Arial" FontSize="15.0"
                             FontStyle="Normal" FontWeight="Normal"
                             Height="20.0" HorizontalAlign="Left"
@@ -190,7 +191,8 @@ Modified: 2015-04-09 14:39
                         </Component>
                     </Group>
                     <TargetArea Height="20.0" Name="UnitMd"
-                        Width="300.0" row_click="">
+                        Width="300.0" unitMdBgd_click=""
+                        unitMdBgd_out="" unitMdBgd_over="">
                         <Expose ExposedAttribute="Name" Name="ValueBind"/>
                     </TargetArea>
                 </Component>
@@ -2063,7 +2065,7 @@ var main = {
 				event = String(attbList.item(i).nodeName).split("_")[1];
 			if(event === "over") {
 				if(this.models.hasOwnProperty(attb)) {
-					if(!global.isUndefined(this.models[attb].over)) {
+					if(!isUndefined(this.models[attb].over)) {
 						this.models[attb].over(e);
 					}
 				}
@@ -2081,7 +2083,7 @@ var main = {
 				event = String(attbList.item(i).nodeName).split("_")[1];
 			if(event === "out") {
 				if(this.models.hasOwnProperty(attb)) {
-					if(!global.isUndefined(this.models[attb].out)) {
+					if(!isUndefined(this.models[attb].out)) {
 						this.models[attb].out(e);
 					}
 				}
@@ -2263,7 +2265,7 @@ var matrixCtrl = {
  	}
  };
  
- /**==========================================================================================
+/**==========================================================================================
  * Group Object
  */
 var groupObject = {
@@ -2363,30 +2365,34 @@ var groupObject = {
  	
  };
  
-  /**==========================================================================================
+/**==========================================================================================
  * Row Object
  */
- var rowObject = {
- 	init: function(node) {
- 		this.node = node;
+var rowObject = {
+	init: function(node) {
+		this.node = node;
  		this.next = null;
  		this.node.setAttribute("Left", 0.0);
  		this.height = +this.node.getAttribute("Height");
  	}
- };
- 
- /**==========================================================================================
- * Arrow Ctrl
+};
+
+/**==========================================================================================
+ * Row Background Control
  */
-var arrowCtrl = {
- 	init: function(node) {
- 		this.rotate = node.getElementsByTagName("Rotate").item(0);
+var rowBgdCtrl = {
+	init: function(node) {
+		this.node = node;
  	},
  	
- 	click: function(e) {
- 		this.rotate.setAttribute("Angle", 0.0);
+ 	over: function(e) {
+ 		this.node.setAttribute("Visibility", "Visible");
+ 	},
+ 	
+ 	out: function(e) {
+ 		this.node.setAttribute("Visibility", "Hidden");
  	}
- };
+};
  
 /**==========================================================================================
  * Value Ctrl
