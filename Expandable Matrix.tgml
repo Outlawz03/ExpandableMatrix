@@ -2,65 +2,61 @@
 
 <!--[DocumentInformation]
 Created: 2012-11-12 15:15
-Modified: 2015-04-08 18:27
+Modified: 2015-04-09 14:39
 -->
 <?tgml version="1.21"?><Tgml Author="MRB" ComponentCounter="52"
     GridSize="5" Height="800" LayerCounter="9"
     Model="ATB-CLG-PF-mHWRH-PI-SXB" Version="130514" Width="1600">
     <Component Clip="False" ContentHeight="100" ContentWidth="300.0"
-        Ctrl="matrixCtrl" Height="100.0" Id="Matrix" Left="569.0"
-        Model="matrix" Top="130.0" Version="2.0" Width="300.0">
+        Ctrl="matrixCtrl" GroupBuffer="20.0" Height="100.0" Id="Matrix"
+        Left="569.0" Model="matrix" Top="130.0" Version="3.0" Width="300.0">
         <Component Clip="False" ContentHeight="40" ContentWidth="300.0"
-            Ctrl="groupCtrl" Height="40" Id="Status" Left="0.0"
-            Model="group1" Top="0.0" Width="300.0">
-            <Expose ExposedAttribute="Id" Name="Matrix Title"/>
-            <Rectangle Ctrl="bgdCtrl" Fill="#FFFFFF" Height="80.0"
-                Left="0.0" Model="group1bgd" Name="bgd" Opacity="1.0"
-                RadiusX="5" RadiusY="5" Stroke="#626469"
+            Height="40" Id="Status" Left="0.0" Top="0.0" Width="300.0" initiallyExpanded="true">
+            <Expose ExposedAttribute="Id" Name="GroupTitle"/>
+            <Rectangle Fill="None" Height="40.0" Left="0.0" Name="bgd"
+                Opacity="1.0" RadiusX="5" RadiusY="5" Stroke="#626469"
                 StrokeDashArray="0.0" StrokeWidth="1.0" Top="0.0"
-                Visibility="Hidden" Width="300.0" initiallyExpanded="true"/>
-            <Component Clip="False" ContentHeight="40.0"
-                ContentWidth="300.0" Height="40.0" Left="0.0"
-                Name="header" Top="0.0" Width="300.0">
-                <Rectangle Fill="#FFFFFF" Height="40.0" Left="0.0"
-                    Opacity="1.0" RadiusX="5" RadiusY="5" Stroke="None"
-                    StrokeDashArray="0.0" StrokeWidth="1.0" Top="0.0" Width="300.0">
-                    <LinearGradient EndPoint="0.0,1.0">
-                        <GradientStop Color="#129D3E" Offset="0"/>
-                        <GradientStop Color="#49B46B" Offset=".1"/>
-                        <GradientStop Color="#009530" Offset=".5"/>
-                        <GradientStop Color="#009530" Offset="1"/>
-                    </LinearGradient>
-                </Rectangle>
-                <Text FontFamily="Arial" FontSize="20"
-                    FontStyle="Normal" FontWeight="Bold"
-                    HorizontalAlign="Left" Left="10.0" Opacity="1.0"
-                    Stroke="#FFFFFF" TextDecoration="None" Top="10.0"
-                        VerticalAlign="Top"><![CDATA[Status]]><Expose
-                        ExposedAttribute="Content" Name="Matrix Title"/>
-                </Text>
-                <Component Clip="False" ContentHeight="10.0"
-                    ContentWidth="20.0" Ctrl="arrowCtrl" Height="10.0"
-                    Left="270.0" Model="arrow" Name="arrow" Top="15.0" Width="20.0">
-                    <Polygon Fill="#FFFFFF"
-                        Points="0.0,0.0 20.0,0.0 10.0,10.0" Stroke="None"/>
-                    <Rotate Angle="180"/>
-                </Component>
-                <TargetArea Height="40.0" Left="0.0" Name="group"
-                    Top="0.0" Width="300.0" arrow_click="" body_click=""
-                    group_click="" matrix_click=""/>
+                Visibility="Visible" Width="300.0"/>
+            <Rectangle Fill="#FFFFFF" Height="40.0" Left="0.0"
+                Name="header" Opacity="1.0" RadiusX="5" RadiusY="5"
+                Stroke="None" StrokeDashArray="0.0" StrokeWidth="1.0"
+                Top="0.0" Width="300.0">
+                <LinearGradient EndPoint="0.0,1.0">
+                    <GradientStop Color="#129D3E" Offset="0"/>
+                    <GradientStop Color="#49B46B" Offset=".1"/>
+                    <GradientStop Color="#009530" Offset=".5"/>
+                    <GradientStop Color="#009530" Offset="1"/>
+                </LinearGradient>
+            </Rectangle>
+            <Text FontFamily="Arial" FontSize="20" FontStyle="Normal"
+                FontWeight="Bold" HorizontalAlign="Left" Left="10.0"
+                Name="title" Opacity="1.0" Stroke="#FFFFFF"
+                TextDecoration="None" Top="10.0"
+                    VerticalAlign="Top"><![CDATA[Status]]><Expose
+                    ExposedAttribute="Content" Name="GroupTitle"/>
+            </Text>
+            <Component Clip="False" ContentHeight="10.0"
+                ContentWidth="20.0" Height="10.0" Left="270.0"
+                Name="arrow" Top="15.0" Width="20.0">
+                <Polygon Fill="#FFFFFF"
+                    Points="0.0,0.0 20.0,0.0 10.0,10.0" Stroke="None"/>
+                <Rotate Angle="180"/>
             </Component>
-            <Group Ctrl="bodyCtrl" Model="body" Name="body"
-                Visibility="Hidden" initiallyExpanded="true">
+            <TargetArea Height="40.0" Left="0.0" Name="Status" Top="0.0"
+                Width="300.0" matrix_click="">
+                <Expose ExposedAttribute="Name" Name="GroupTitle"/>
+            </TargetArea>
+            <Group Name="rows" Visibility="Hidden">
                 <Component Clip="False" ContentHeight="20"
-                    ContentWidth="300" Group="Tl" Height="20.0"
+                    ContentWidth="300" Group="UnitMd" Height="20.0"
                     Id="UnitMd" Left="90.0" Name="" Top="130.0"
                     Visibility="Visible" Width="300.0">
                     <Group Name="binds">
                         <Bind Description="ValueBind" Name="UnitMd">
                             <Expose ExposedAttribute="Name" Name="ValueBind"/>
                         </Bind>
-                        <Bind Description="PriBind" Name="UnitMd.ActiveCommandPriority">
+                        <Bind Description="PriBind"
+                            Name="UnitMd.ActiveCommandPriority" PreventDefault="True">
                             <Expose ExposedAttribute="Name" Name="ForceBind"/>
                         </Bind>
                     </Group>
@@ -602,43 +598,45 @@ Modified: 2015-04-08 18:27
                         <Expose ExposedAttribute="Name" Name="ValueBind"/>
                     </TargetArea>
                 </Component>
-                <Expose ExposedAttribute="initiallyExpanded" Name="initiallyExpanded"/>
             </Group>
         </Component>
         <Component Clip="False" ContentHeight="40" ContentWidth="300.0"
             Height="40" Id="Setpoints" Left="0" Top="60" Width="300.0" initiallyExpanded="n">
             <Expose ExposedAttribute="Id" Name="Matrix Title"/>
-            <Rectangle Fill="#FFFFFF" Height="80.0" Left="0.0"
-                Name="bgd" Opacity="1.0" RadiusX="5" RadiusY="5"
-                Stroke="#626469" StrokeDashArray="0.0" StrokeWidth="1.0"
-                Top="0.0" Visibility="Hidden" Width="300.0"/>
-            <Group Name="header">
-                <Rectangle Fill="#FFFFFF" Height="40.0" Left="0.0"
-                    Opacity="1.0" RadiusX="5" RadiusY="5" Stroke="None"
-                    StrokeDashArray="0.0" StrokeWidth="1.0" Top="0.0" Width="300.0">
-                    <LinearGradient EndPoint="0.0,1.0">
-                        <GradientStop Color="#129D3E" Offset="0"/>
-                        <GradientStop Color="#49B46B" Offset=".1"/>
-                        <GradientStop Color="#009530" Offset=".5"/>
-                        <GradientStop Color="#009530" Offset="1"/>
-                    </LinearGradient>
-                </Rectangle>
-                <Text FontFamily="Arial" FontSize="20"
-                    FontStyle="Normal" FontWeight="Bold"
-                    HorizontalAlign="Left" Left="10.0" Opacity="1.0"
-                    Stroke="#FFFFFF" TextDecoration="None" Top="10.0"
-                        VerticalAlign="Top"><![CDATA[Setpoints]]><Expose
-                        ExposedAttribute="Content" Name="Matrix Title"/>
-                </Text>
-                <Component Clip="False" ContentHeight="10.0"
-                    ContentWidth="20.0" Height="10.0" Left="270.0"
-                    Name="arrow" Top="15.0" Width="20.0">
-                    <Polygon Fill="#FFFFFF"
-                        Points="0.0,0.0 20.0,0.0 10.0,10.0" Stroke="None"/>
-                    <Rotate Angle="180"/>
-                </Component>
-            </Group>
-            <Group Name="body" Visibility="Hidden">
+            <Rectangle Fill="None" Height="40.0" Left="0.0" Name="bgd"
+                Opacity="1.0" RadiusX="5" RadiusY="5" Stroke="#626469"
+                StrokeDashArray="0.0" StrokeWidth="1.0" Top="0.0"
+                Visibility="Visible" Width="300.0"/>
+            <Rectangle Fill="#FFFFFF" Height="40.0" Left="0.0"
+                Name="header" Opacity="1.0" RadiusX="5" RadiusY="5"
+                Stroke="None" StrokeDashArray="0.0" StrokeWidth="1.0"
+                Top="0.0" Width="300.0">
+                <LinearGradient EndPoint="0.0,1.0">
+                    <GradientStop Color="#129D3E" Offset="0"/>
+                    <GradientStop Color="#49B46B" Offset=".1"/>
+                    <GradientStop Color="#009530" Offset=".5"/>
+                    <GradientStop Color="#009530" Offset="1"/>
+                </LinearGradient>
+            </Rectangle>
+            <Text FontFamily="Arial" FontSize="20" FontStyle="Normal"
+                FontWeight="Bold" HorizontalAlign="Left" Left="10.0"
+                Name="title" Opacity="1.0" Stroke="#FFFFFF"
+                TextDecoration="None" Top="10.0"
+                    VerticalAlign="Top"><![CDATA[Setpoints]]><Expose
+                    ExposedAttribute="Content" Name="Matrix Title"/>
+            </Text>
+            <Component Clip="False" ContentHeight="10.0"
+                ContentWidth="20.0" Height="10.0" Left="270.0"
+                Name="arrow" Top="15.0" Width="20.0">
+                <Polygon Fill="#FFFFFF"
+                    Points="0.0,0.0 20.0,0.0 10.0,10.0" Stroke="None"/>
+                <Rotate Angle="180"/>
+            </Component>
+            <TargetArea Height="40.0" Left="0.0" Name="Setpoints"
+                Top="0.0" Width="300.0" matrix_click="">
+                <Expose ExposedAttribute="Name" Name="GroupTitle"/>
+            </TargetArea>
+            <Group Name="rows" Visibility="Hidden">
                 <Component Clip="False" ContentHeight="20"
                     ContentWidth="300" Group="Tl" Height="20.0"
                     Id="RmTmpBsCspt" Left="70.0" Name="" Top="110.0"
@@ -1964,41 +1962,44 @@ Modified: 2015-04-08 18:27
         <Component Clip="False" ContentHeight="40" ContentWidth="300.0"
             Height="40.0" Id="Alarms" Left="0" Top="120" Width="300.0" initiallyExpanded="n">
             <Expose ExposedAttribute="Id" Name="Matrix Title"/>
-            <Rectangle Fill="#FFFFFF" Height="80.0" Left="0.0"
-                Name="bgd" Opacity="1.0" RadiusX="5" RadiusY="5"
-                Stroke="#626469" StrokeDashArray="0.0" StrokeWidth="1.0"
-                Top="0.0" Visibility="Hidden" Width="300.0"/>
-            <Group Name="header">
-                <Rectangle Fill="#FFFFFF" Height="40.0" Left="0.0"
-                    Opacity="1.0" RadiusX="5" RadiusY="5" Stroke="None"
-                    StrokeDashArray="0.0" StrokeWidth="1.0" Top="0.0" Width="300.0">
-                    <LinearGradient EndPoint="0.0,1.0">
-                        <GradientStop Color="#129D3E" Offset="0"/>
-                        <GradientStop Color="#49B46B" Offset=".1"/>
-                        <GradientStop Color="#009530" Offset=".5"/>
-                        <GradientStop Color="#009530" Offset="1"/>
-                    </LinearGradient>
-                </Rectangle>
-                <Text FontFamily="Arial" FontSize="20"
-                    FontStyle="Normal" FontWeight="Bold"
-                    HorizontalAlign="Left" Left="10.0" Opacity="1.0"
-                    Stroke="#FFFFFF" TextDecoration="None" Top="10.0"
-                        VerticalAlign="Top"><![CDATA[Alarms]]><Expose
-                        ExposedAttribute="Content" Name="Matrix Title"/>
-                </Text>
-                <Component Clip="False" ContentHeight="10.0"
-                    ContentWidth="20.0" Height="10.0" Left="270.0"
-                    Name="arrow" Top="15.0" Width="20.0">
-                    <Polygon Fill="#FFFFFF"
-                        Points="0.0,0.0 20.0,0.0 10.0,10.0" Stroke="None"/>
-                    <Rotate Angle="180"/>
-                </Component>
-            </Group>
-            <Group Name="body" Visibility="Hidden"/>
+            <Rectangle Fill="None" Height="40.0" Left="0.0" Name="bgd"
+                Opacity="1.0" RadiusX="5" RadiusY="5" Stroke="#626469"
+                StrokeDashArray="0.0" StrokeWidth="1.0" Top="0.0"
+                Visibility="Visible" Width="300.0"/>
+            <Rectangle Fill="#FFFFFF" Height="40.0" Left="0.0"
+                Name="header" Opacity="1.0" RadiusX="5" RadiusY="5"
+                Stroke="None" StrokeDashArray="0.0" StrokeWidth="1.0"
+                Top="0.0" Width="300.0">
+                <LinearGradient EndPoint="0.0,1.0">
+                    <GradientStop Color="#129D3E" Offset="0"/>
+                    <GradientStop Color="#49B46B" Offset=".1"/>
+                    <GradientStop Color="#009530" Offset=".5"/>
+                    <GradientStop Color="#009530" Offset="1"/>
+                </LinearGradient>
+            </Rectangle>
+            <Text FontFamily="Arial" FontSize="20" FontStyle="Normal"
+                FontWeight="Bold" HorizontalAlign="Left" Left="10.0"
+                Name="title" Opacity="1.0" Stroke="#FFFFFF"
+                TextDecoration="None" Top="10.0"
+                    VerticalAlign="Top"><![CDATA[Alarms]]><Expose
+                    ExposedAttribute="Content" Name="Matrix Title"/>
+            </Text>
+            <Component Clip="False" ContentHeight="10.0"
+                ContentWidth="20.0" Height="10.0" Left="270.0"
+                Name="arrow" Top="15.0" Width="20.0">
+                <Polygon Fill="#FFFFFF"
+                    Points="0.0,0.0 20.0,0.0 10.0,10.0" Stroke="None"/>
+                <Rotate Angle="180"/>
+            </Component>
+            <TargetArea Height="40.0" Left="0.0" Name="Alarms" Top="0.0"
+                Width="300.0" matrix_click="">
+                <Expose ExposedAttribute="Name" Name="GroupTitle"/>
+            </TargetArea>
+            <Group Name="rows" Visibility="Hidden"/>
         </Component>
         <Script Name="Matrix" OnDocumentLoad="load" OnMouseClick="click"
-            OnMouseDown="" OnMouseMove="" OnMouseOut="" OnMouseOver=""
-            OnMouseUp="up" OnSignalChange="change"><![CDATA[/**==========================================================================================
+            OnMouseDown="" OnMouseMove="" OnMouseOut="out"
+            OnMouseOver="over" OnMouseUp="up" OnSignalChange="change"><![CDATA[/**==========================================================================================
  * Main Object
  */
 var main = {
@@ -2109,6 +2110,14 @@ function up(evt) {
 	main.up(evt);
 }
 
+function over(evt) {
+	main.over(evt);
+}
+
+function out(evt) {
+	main.out(evt);
+}
+
 /**==========================================================================================
  * Helper Functions
  */
@@ -2183,42 +2192,186 @@ if (!Object.create) {
 var matrixCtrl = {
  	init: function(node) {
  		this.node = node;
+ 		
+ 		this.groups = {};
+ 		var children = this.node.getChildNodes();
+ 		this.groupsHead = null;
+ 		this.groupsTail = null;
+ 		for(var i = 0, max = children.length; i < max; i += 1) {
+ 			var child = children.item(i);
+ 			var name = String(child.getAttribute("Id"));
+ 			var tagName = String(child.getTagName());
+ 			if(tagName === "Component") {
+ 				this.groups[name] = Object.create(groupObject);
+ 				this.groups[name].init(child);  				
+ 				
+ 				// first loop only set up the head and the tail
+ 				if(this.groupsHead === null) {
+ 					// set the name of the head
+ 					this.groupsHead = name;
+ 					// tie the tail to the head
+ 					this.groupsTail = this.groupsHead;
+ 				}
+ 				
+ 				// make the tails next equal the current object
+ 				this.groups[this.groupsTail].next = name;
+ 				// set the tail to the object
+ 				this.groupsTail = name;
+ 			}
+ 		}
+ 		
+ 		// get the buffer between the groups
+ 		this.groupBuffer = +this.node.getAttribute("GroupBuffer");
+ 		
+ 		// stack the groups
+ 		this.stack();
  	},
  	
  	click: function(e) {
+ 		var target = e.getTarget();
+ 		var targetName = String(target.getAttribute("Name"));
+ 		var parentId = String(target.getParentNode().getAttribute("Id"));
+ 		
+ 		if(this.groups.hasOwnProperty(targetName)) {
+ 			this.groups[targetName].toggleVisibility();
+		} else if(this.groups.hasOwnProperty(parentId)) {
+			this.groups[parentId].toggleVisibility();
+		}
+		
+		this.stack();
+ 	},
+ 	
+ 	// stacks the groups based on current height
+ 	stack: function() {
+ 		// store the name of the head
+ 		var name = this.groupsHead;
+ 
+ 		// start at zero
+ 		var top = 0;
+ 		
+ 		// loop through each group object
+ 		while(name !== null) {
+ 			// set the top property
+ 			this.groups[name].node.setAttribute("Top", top);
+ 			
+ 			// add the height and buffer to top
+ 			top += this.groups[name].height + this.groupBuffer;
+ 			
+ 			// advance the name to the next object
+ 			name = this.groups[name].next;
+ 		}
  	}
  };
  
  /**==========================================================================================
- * Group Ctrl
+ * Group Object
  */
-var groupCtrl = {
+var groupObject = {
  	init: function(node) {
+ 		// store node
  		this.node = node;
+ 		
+ 		// create next pointer
+ 		this.next = null;
+ 		
+ 		// store initial height
+ 		this.height = +this.node.getAttribute("Height");
+ 		
+ 		// get rows, arrow, and background rectangle
+ 		this.rowsGroup = this.node.getChild("rows");
+ 		this.arrowRotate = this.node.getChild("arrow").getElementsByTagName("Rotate").item(0);
+ 		this.bgd = this.node.getChild("bgd");
+ 		
+ 		// get header height
+ 		this.headerHeight = +this.node.getChild("header").getAttribute("Height");
+ 		
+ 		// get initial visibility
+ 		this.visibility = getBool(this.node.getAttribute("initiallyExpanded"));		
+ 		
+ 		this.rows = {};
+ 		var children = this.rowsGroup.getChildNodes();
+ 		this.rowsHead = null;
+ 		this.rowsTail = null;
+ 		
+ 		for(var i = 0, max = children.length; i < max; i += 1) {
+ 			var child = children.item(i);
+ 			var name = String(child.getAttribute("Id"));
+ 			var tagName = String(child.getTagName());
+ 			if(tagName === "Component") {
+ 				this.rows[name] = Object.create(rowObject);
+ 				this.rows[name].init(child);  				
+ 				
+ 				// first loop only set up the head and the tail
+ 				if(this.rowsHead === null) {
+ 					// set the name of the head
+ 					this.rowsHead = name;
+ 					// tie the tail to the head
+ 					this.rowsTail = this.rowsHead;
+ 				}
+ 				
+ 				// make the tails next equal the current object
+ 				this.rows[this.rowsTail].next = name;
+ 				// set the tail to the object
+ 				this.rowsTail = name;
+ 			}
+ 		}
+ 		
+ 		// make bottom line invisible
+ 		if(this.rows.hasOwnProperty(this.rowsTail)) {
+ 			this.rows[this.rowsTail].node.getChildRecursive("Hline").setAttribute("Visibility", "Hidden");
+ 		}
+ 		
+ 		this.setVisibility(); 
  	},
  	
- 	click: function(e) {
+ 	toggleVisibility: function() {
+ 		this.visibility = !this.visibility;
+ 		this.setVisibility();
+ 	},
+ 	
+ 	setVisibility: function() {
+ 		this.rowsGroup.setAttribute("Visibility", this.visibility ? "Visible" : "Hidden");
+ 		this.arrowRotate.setAttribute("Angle", this.visibility ? "0.0" : "180.0");
+ 		this.stack();
+ 	},
+ 	
+ 	stack: function() {
+ 		// store the name of the head
+ 		var name = this.rowsHead;
+ 
+ 		// start at header bottom
+ 		var top = this.headerHeight;
+ 		
+ 		// loop through each group object
+ 		while(name !== null) {
+ 			// set the top property
+ 			this.rows[name].node.setAttribute("Top", top);
+ 			
+ 			// add the height and buffer to top
+ 			top += this.rows[name].height;
+ 			
+ 			// advance the name to the next object
+ 			name = this.rows[name].next;
+ 		}
+ 		
+ 		// store new height
+ 		this.height = this.visibility ? top : this.headerHeight;
+ 		
+ 		// set bgd height
+ 		this.bgd.setAttribute("Height", this.height);
  	}
+ 	
  };
-
-/**==========================================================================================
- * body Ctrl
+ 
+  /**==========================================================================================
+ * Row Object
  */
-var bodyCtrl = {
+ var rowObject = {
  	init: function(node) {
  		this.node = node;
- 		this.visibility = false;
- 		if(this.node.hasAttribute("initiallyExpanded")) {
- 			this.visibility = getBool(this.node.getAttribute("initiallyExpanded"));
- 		}
- 		this.update();
- 	},
- 	click: function(e) {
- 		this.visibility = !this.visibility;
- 		this.update();
- 	},
- 	update: function() {
- 		this.node.setAttribute("Visibility", this.visibility ? "Visible" : "Hidden");
+ 		this.next = null;
+ 		this.node.setAttribute("Left", 0.0);
+ 		this.height = +this.node.getAttribute("Height");
  	}
  };
  
