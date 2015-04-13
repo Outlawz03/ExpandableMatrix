@@ -2,7 +2,7 @@
 
 <!--[DocumentInformation]
 Created: 2012-11-12 15:15
-Modified: 2015-04-09 15:25
+Modified: 2015-04-13 09:40
 -->
 <?tgml version="1.21"?><Tgml Author="MRB" ComponentCounter="52"
     GridSize="5" Height="800" LayerCounter="9"
@@ -65,8 +65,7 @@ Modified: 2015-04-09 15:25
                             X2="200" Y2="20"/>
                         <Line Name="Hline" Stroke="#626469" X1="0"
                             X2="300" Y1="20" Y2="20"/>
-                        <Rectangle Ctrl="rowBgdCtrl" Fill="#9FA0A4"
-                            Height="20" Model="unitMdBgd" Name="bgd"
+                        <Rectangle Fill="#9FA0A4" Height="20" Name="bgd"
                             RadiusX="5" RadiusY="5" Stroke="None"
                             Visibility="Hidden" Width="300"/>
                         <TextBox FontFamily="Arial" FontSize="15.0"
@@ -191,8 +190,7 @@ Modified: 2015-04-09 15:25
                         </Component>
                     </Group>
                     <TargetArea Height="20.0" Name="UnitMd"
-                        Width="300.0" unitMdBgd_click=""
-                        unitMdBgd_out="" unitMdBgd_over="">
+                        Width="300.0" matrix_click="" matrix_out="" matrix_over="">
                         <Expose ExposedAttribute="Name" Name="ValueBind"/>
                     </TargetArea>
                 </Component>
@@ -213,9 +211,9 @@ Modified: 2015-04-09 15:25
                             X2="200" Y2="20"/>
                         <Line Name="Hline" Stroke="#626469" X1="0"
                             X2="300" Y1="20" Y2="20"/>
-                        <Rectangle Fill="#01FFFFFF" Height="20"
-                            Name="bgd" RadiusX="5" RadiusY="5"
-                            Stroke="None" Width="300"/>
+                        <Rectangle Fill="#9FA0A4" Height="20" Name="bgd"
+                            RadiusX="5" RadiusY="5" Stroke="None"
+                            Visibility="Hidden" Width="300"/>
                         <TextBox FontFamily="Arial" FontSize="15.0"
                             FontStyle="Normal" FontWeight="Normal"
                             Height="20.0" HorizontalAlign="Left"
@@ -327,7 +325,8 @@ Modified: 2015-04-09 15:25
                             </Component>
                         </Component>
                     </Group>
-                    <TargetArea Height="20.0" Name="EffOcc" Width="300.0">
+                    <TargetArea Height="20.0" Name="EffOcc"
+                        Width="300.0" matrix_click="" matrix_out="" matrix_over="">
                         <Expose ExposedAttribute="Name" Name="ValueBind"/>
                     </TargetArea>
                 </Component>
@@ -347,9 +346,9 @@ Modified: 2015-04-09 15:25
                             X2="200" Y2="20"/>
                         <Line Name="Hline" Stroke="#626469" X1="0"
                             X2="300" Y1="20" Y2="20"/>
-                        <Rectangle Fill="#01FFFFFF" Height="20"
-                            Name="bgd" RadiusX="5" RadiusY="5"
-                            Stroke="None" Width="300"/>
+                        <Rectangle Fill="#9FA0A4" Height="20" Name="bgd"
+                            RadiusX="5" RadiusY="5" Stroke="None"
+                            Visibility="Hidden" Width="300"/>
                         <TextBox FontFamily="Arial" FontSize="15.0"
                             FontStyle="Normal" FontWeight="Normal"
                             Height="20.0" HorizontalAlign="Left"
@@ -461,7 +460,8 @@ Modified: 2015-04-09 15:25
                             </Component>
                         </Component>
                     </Group>
-                    <TargetArea Height="20.0" Name="Tl" Width="300.0">
+                    <TargetArea Height="20.0" Name="Tl" Width="300.0"
+                        matrix_click="" matrix_out="" matrix_over="">
                         <Expose ExposedAttribute="Name" Name="ValueBind"/>
                     </TargetArea>
                 </Component>
@@ -482,9 +482,9 @@ Modified: 2015-04-09 15:25
                             X2="200" Y2="20"/>
                         <Line Name="Hline" Stroke="#626469" X1="0"
                             X2="300" Y1="20" Y2="20"/>
-                        <Rectangle Fill="#01FFFFFF" Height="20"
-                            Name="bgd" RadiusX="5" RadiusY="5"
-                            Stroke="None" Width="300"/>
+                        <Rectangle Fill="#9FA0A4" Height="20" Name="bgd"
+                            RadiusX="5" RadiusY="5" Stroke="None"
+                            Visibility="Hidden" Width="300"/>
                         <TextBox FontFamily="Arial" FontSize="15.0"
                             FontStyle="Normal" FontWeight="Normal"
                             Height="20.0" HorizontalAlign="Left"
@@ -596,7 +596,8 @@ Modified: 2015-04-09 15:25
                             </Component>
                         </Component>
                     </Group>
-                    <TargetArea Height="20.0" Name="RmOvr" Width="300.0">
+                    <TargetArea Height="20.0" Name="RmOvr" Width="300.0"
+                        matrix_click="" matrix_out="" matrix_over="">
                         <Expose ExposedAttribute="Name" Name="ValueBind"/>
                     </TargetArea>
                 </Component>
@@ -653,9 +654,9 @@ Modified: 2015-04-09 15:25
                             X2="200" Y2="20"/>
                         <Line Name="Hline" Stroke="#626469" X1="0"
                             X2="300" Y1="20" Y2="20"/>
-                        <Rectangle Fill="#01FFFFFF" Height="20"
-                            Name="bgd" RadiusX="5" RadiusY="5"
-                            Stroke="None" Width="300"/>
+                        <Rectangle Fill="#9FA0A4" Height="20" Name="bgd"
+                            RadiusX="5" RadiusY="5" Stroke="None"
+                            Visibility="Hidden" Width="300"/>
                         <TextBox FontFamily="Arial" FontSize="15.0"
                             FontStyle="Normal" FontWeight="Normal"
                             Height="20.0" HorizontalAlign="Left"
@@ -767,7 +768,8 @@ Modified: 2015-04-09 15:25
                             </Component>
                         </Component>
                     </Group>
-                    <TargetArea Height="20.0" Name="RmTmpBsCspt" Width="300.0">
+                    <TargetArea Height="20.0" Name="RmTmpBsCspt"
+                        Width="300.0" matrix_click="" matrix_out="" matrix_over="">
                         <Expose ExposedAttribute="Name" Name="ValueBind"/>
                     </TargetArea>
                 </Component>
@@ -785,9 +787,9 @@ Modified: 2015-04-09 15:25
                             X2="200" Y2="20"/>
                         <Line Name="Hline" Stroke="#626469" X1="0"
                             X2="300" Y1="20" Y2="20"/>
-                        <Rectangle Fill="#01FFFFFF" Height="20"
-                            Name="bgd" RadiusX="5" RadiusY="5"
-                            Stroke="None" Width="300"/>
+                        <Rectangle Fill="#9FA0A4" Height="20" Name="bgd"
+                            RadiusX="5" RadiusY="5" Stroke="None"
+                            Visibility="Hidden" Width="300"/>
                         <TextBox FontFamily="Arial" FontSize="15.0"
                             FontStyle="Normal" FontWeight="Normal"
                             Height="20.0" HorizontalAlign="Left"
@@ -899,7 +901,8 @@ Modified: 2015-04-09 15:25
                             </Component>
                         </Component>
                     </Group>
-                    <TargetArea Height="20.0" Name="RmTmpBsHspt" Width="300.0">
+                    <TargetArea Height="20.0" Name="RmTmpBsHspt"
+                        Width="300.0" matrix_click="" matrix_out="" matrix_over="">
                         <Expose ExposedAttribute="Name" Name="ValueBind"/>
                     </TargetArea>
                 </Component>
@@ -917,9 +920,9 @@ Modified: 2015-04-09 15:25
                             X2="200" Y2="20"/>
                         <Line Name="Hline" Stroke="#626469" X1="0"
                             X2="300" Y1="20" Y2="20"/>
-                        <Rectangle Fill="#01FFFFFF" Height="20"
-                            Name="bgd" RadiusX="5" RadiusY="5"
-                            Stroke="None" Width="300"/>
+                        <Rectangle Fill="#9FA0A4" Height="20" Name="bgd"
+                            RadiusX="5" RadiusY="5" Stroke="None"
+                            Visibility="Hidden" Width="300"/>
                         <TextBox FontFamily="Arial" FontSize="15.0"
                             FontStyle="Normal" FontWeight="Normal"
                             Height="20.0" HorizontalAlign="Left"
@@ -1031,7 +1034,8 @@ Modified: 2015-04-09 15:25
                             </Component>
                         </Component>
                     </Group>
-                    <TargetArea Height="20.0" Name="TmpSuSpt" Width="300.0">
+                    <TargetArea Height="20.0" Name="TmpSuSpt"
+                        Width="300.0" matrix_click="" matrix_out="" matrix_over="">
                         <Expose ExposedAttribute="Name" Name="ValueBind"/>
                     </TargetArea>
                 </Component>
@@ -1049,9 +1053,9 @@ Modified: 2015-04-09 15:25
                             X2="200" Y2="20"/>
                         <Line Name="Hline" Stroke="#626469" X1="0"
                             X2="300" Y1="20" Y2="20"/>
-                        <Rectangle Fill="#01FFFFFF" Height="20"
-                            Name="bgd" RadiusX="5" RadiusY="5"
-                            Stroke="None" Width="300"/>
+                        <Rectangle Fill="#9FA0A4" Height="20" Name="bgd"
+                            RadiusX="5" RadiusY="5" Stroke="None"
+                            Visibility="Hidden" Width="300"/>
                         <TextBox FontFamily="Arial" FontSize="15.0"
                             FontStyle="Normal" FontWeight="Normal"
                             Height="20.0" HorizontalAlign="Left"
@@ -1163,7 +1167,8 @@ Modified: 2015-04-09 15:25
                             </Component>
                         </Component>
                     </Group>
-                    <TargetArea Height="20.0" Name="TmpSbSpt" Width="300.0">
+                    <TargetArea Height="20.0" Name="TmpSbSpt"
+                        Width="300.0" matrix_click="" matrix_out="" matrix_over="">
                         <Expose ExposedAttribute="Name" Name="ValueBind"/>
                     </TargetArea>
                 </Component>
@@ -1181,9 +1186,9 @@ Modified: 2015-04-09 15:25
                             X2="200" Y2="20"/>
                         <Line Name="Hline" Stroke="#626469" X1="0"
                             X2="300" Y1="20" Y2="20"/>
-                        <Rectangle Fill="#01FFFFFF" Height="20"
-                            Name="bgd" RadiusX="5" RadiusY="5"
-                            Stroke="None" Width="300"/>
+                        <Rectangle Fill="#9FA0A4" Height="20" Name="bgd"
+                            RadiusX="5" RadiusY="5" Stroke="None"
+                            Visibility="Hidden" Width="300"/>
                         <TextBox FontFamily="Arial" FontSize="15.0"
                             FontStyle="Normal" FontWeight="Normal"
                             Height="20.0" HorizontalAlign="Left"
@@ -1295,7 +1300,8 @@ Modified: 2015-04-09 15:25
                             </Component>
                         </Component>
                     </Group>
-                    <TargetArea Height="20.0" Name="AirFlSptMin" Width="300.0">
+                    <TargetArea Height="20.0" Name="AirFlSptMin"
+                        Width="300.0" matrix_click="" matrix_out="" matrix_over="">
                         <Expose ExposedAttribute="Name" Name="ValueBind"/>
                     </TargetArea>
                 </Component>
@@ -1313,9 +1319,9 @@ Modified: 2015-04-09 15:25
                             X2="200" Y2="20"/>
                         <Line Name="Hline" Stroke="#626469" X1="0"
                             X2="300" Y1="20" Y2="20"/>
-                        <Rectangle Fill="#01FFFFFF" Height="20"
-                            Name="bgd" RadiusX="5" RadiusY="5"
-                            Stroke="None" Width="300"/>
+                        <Rectangle Fill="#9FA0A4" Height="20" Name="bgd"
+                            RadiusX="5" RadiusY="5" Stroke="None"
+                            Visibility="Hidden" Width="300"/>
                         <TextBox FontFamily="Arial" FontSize="15.0"
                             FontStyle="Normal" FontWeight="Normal"
                             Height="20.0" HorizontalAlign="Left"
@@ -1427,7 +1433,8 @@ Modified: 2015-04-09 15:25
                             </Component>
                         </Component>
                     </Group>
-                    <TargetArea Height="20.0" Name="AirFlSptMax" Width="300.0">
+                    <TargetArea Height="20.0" Name="AirFlSptMax"
+                        Width="300.0" matrix_click="" matrix_out="" matrix_over="">
                         <Expose ExposedAttribute="Name" Name="ValueBind"/>
                     </TargetArea>
                 </Component>
@@ -1445,9 +1452,9 @@ Modified: 2015-04-09 15:25
                             X2="200" Y2="20"/>
                         <Line Name="Hline" Stroke="#626469" X1="0"
                             X2="300" Y1="20" Y2="20"/>
-                        <Rectangle Fill="#01FFFFFF" Height="20"
-                            Name="bgd" RadiusX="5" RadiusY="5"
-                            Stroke="None" Width="300"/>
+                        <Rectangle Fill="#9FA0A4" Height="20" Name="bgd"
+                            RadiusX="5" RadiusY="5" Stroke="None"
+                            Visibility="Hidden" Width="300"/>
                         <TextBox FontFamily="Arial" FontSize="15.0"
                             FontStyle="Normal" FontWeight="Normal"
                             Height="20.0" HorizontalAlign="Left"
@@ -1559,7 +1566,8 @@ Modified: 2015-04-09 15:25
                             </Component>
                         </Component>
                     </Group>
-                    <TargetArea Height="20.0" Name="AirFlSptHtgMin" Width="300.0">
+                    <TargetArea Height="20.0" Name="AirFlSptHtgMin"
+                        Width="300.0" matrix_click="" matrix_out="" matrix_over="">
                         <Expose ExposedAttribute="Name" Name="ValueBind"/>
                     </TargetArea>
                 </Component>
@@ -1577,9 +1585,9 @@ Modified: 2015-04-09 15:25
                             X2="200" Y2="20"/>
                         <Line Name="Hline" Stroke="#626469" X1="0"
                             X2="300" Y1="20" Y2="20"/>
-                        <Rectangle Fill="#01FFFFFF" Height="20"
-                            Name="bgd" RadiusX="5" RadiusY="5"
-                            Stroke="None" Width="300"/>
+                        <Rectangle Fill="#9FA0A4" Height="20" Name="bgd"
+                            RadiusX="5" RadiusY="5" Stroke="None"
+                            Visibility="Hidden" Width="300"/>
                         <TextBox FontFamily="Arial" FontSize="15.0"
                             FontStyle="Normal" FontWeight="Normal"
                             Height="20.0" HorizontalAlign="Left"
@@ -1691,7 +1699,8 @@ Modified: 2015-04-09 15:25
                             </Component>
                         </Component>
                     </Group>
-                    <TargetArea Height="20.0" Name="AirFlSptHtgMax" Width="300.0">
+                    <TargetArea Height="20.0" Name="AirFlSptHtgMax"
+                        Width="300.0" matrix_click="" matrix_out="" matrix_over="">
                         <Expose ExposedAttribute="Name" Name="ValueBind"/>
                     </TargetArea>
                 </Component>
@@ -1709,9 +1718,9 @@ Modified: 2015-04-09 15:25
                             X2="200" Y2="20"/>
                         <Line Name="Hline" Stroke="#626469" X1="0"
                             X2="300" Y1="20" Y2="20"/>
-                        <Rectangle Fill="#01FFFFFF" Height="20"
-                            Name="bgd" RadiusX="5" RadiusY="5"
-                            Stroke="None" Width="300"/>
+                        <Rectangle Fill="#9FA0A4" Height="20" Name="bgd"
+                            RadiusX="5" RadiusY="5" Stroke="None"
+                            Visibility="Hidden" Width="300"/>
                         <TextBox FontFamily="Arial" FontSize="15.0"
                             FontStyle="Normal" FontWeight="Normal"
                             Height="20.0" HorizontalAlign="Left"
@@ -1823,7 +1832,8 @@ Modified: 2015-04-09 15:25
                             </Component>
                         </Component>
                     </Group>
-                    <TargetArea Height="20.0" Name="AirFlSptStbyMin" Width="300.0">
+                    <TargetArea Height="20.0" Name="AirFlSptStbyMin"
+                        Width="300.0" matrix_click="" matrix_out="" matrix_over="">
                         <Expose ExposedAttribute="Name" Name="ValueBind"/>
                     </TargetArea>
                 </Component>
@@ -1841,9 +1851,9 @@ Modified: 2015-04-09 15:25
                             X2="200" Y2="20"/>
                         <Line Name="Hline" Stroke="#626469" X1="0"
                             X2="300" Y1="20" Y2="20"/>
-                        <Rectangle Fill="#01FFFFFF" Height="20"
-                            Name="bgd" RadiusX="5" RadiusY="5"
-                            Stroke="None" Width="300"/>
+                        <Rectangle Fill="#9FA0A4" Height="20" Name="bgd"
+                            RadiusX="5" RadiusY="5" Stroke="None"
+                            Visibility="Hidden" Width="300"/>
                         <TextBox FontFamily="Arial" FontSize="15.0"
                             FontStyle="Normal" FontWeight="Normal"
                             Height="20.0" HorizontalAlign="Left"
@@ -1955,7 +1965,8 @@ Modified: 2015-04-09 15:25
                             </Component>
                         </Component>
                     </Group>
-                    <TargetArea Height="20.0" Name="AirFlSptStbyMax" Width="300.0">
+                    <TargetArea Height="20.0" Name="AirFlSptStbyMax"
+                        Width="300.0" matrix_click="" matrix_out="" matrix_over="">
                         <Expose ExposedAttribute="Name" Name="ValueBind"/>
                     </TargetArea>
                 </Component>
@@ -2241,6 +2252,48 @@ var matrixCtrl = {
 		}
 		
 		this.stack();
+		
+		// search through each group for the matching component
+		for(var key in this.groups) {
+			var group = this.groups[key];			
+			if(group.rows.hasOwnProperty(targetName)) {
+ 				group.rows[targetName].click();
+			} else if(group.rows.hasOwnProperty(parentId)) {
+				group.rows[parentId].click();
+			}
+		}
+ 	},
+ 	
+ 	over: function(e) {
+ 		var target = e.getTarget();
+ 		var targetName = String(target.getAttribute("Name"));
+ 		var parentId = String(target.getParentNode().getAttribute("Id"));
+ 		
+ 		// search through each group for the matching component
+ 		for(var key in this.groups) {
+			var group = this.groups[key];			
+			if(group.rows.hasOwnProperty(targetName)) {
+ 				group.rows[targetName].over();
+			} else if(group.rows.hasOwnProperty(parentId)) {
+				group.rows[parentId].over();
+			}
+		}
+ 	},
+ 	
+ 	 out: function(e) {
+ 	 	var target = e.getTarget();
+ 		var targetName = String(target.getAttribute("Name"));
+ 		var parentId = String(target.getParentNode().getAttribute("Id"));
+ 		
+ 		// search through each group for the matching component
+		for(var key in this.groups) {
+			var group = this.groups[key];			
+			if(group.rows.hasOwnProperty(targetName)) {
+ 				group.rows[targetName].out();
+			} else if(group.rows.hasOwnProperty(parentId)) {
+				group.rows[parentId].out();
+			}
+		}
  	},
  	
  	// stacks the groups based on current height
@@ -2374,23 +2427,20 @@ var rowObject = {
  		this.next = null;
  		this.node.setAttribute("Left", 0.0);
  		this.height = +this.node.getAttribute("Height");
- 	}
-};
-
-/**==========================================================================================
- * Row Background Control
- */
-var rowBgdCtrl = {
-	init: function(node) {
-		this.node = node;
+ 		
+ 		// get the background rectangle for hover indication
+ 		this.bgd = this.node.getChildRecursive("bgd");
  	},
  	
- 	over: function(e) {
- 		this.node.setAttribute("Visibility", "Visible");
+ 	click: function() {
  	},
  	
- 	out: function(e) {
- 		this.node.setAttribute("Visibility", "Hidden");
+ 	over: function() {
+ 		this.bgd.setAttribute("Visibility", "Visible");
+ 	},
+ 	
+ 	out: function() {
+ 		this.bgd.setAttribute("Visibility", "Hidden");
  	}
 };
  
