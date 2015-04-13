@@ -2,7 +2,7 @@
 
 <!--[DocumentInformation]
 Created: 2012-11-12 15:15
-Modified: 2015-04-13 09:40
+Modified: 2015-04-13 10:04
 -->
 <?tgml version="1.21"?><Tgml Author="MRB" ComponentCounter="52"
     GridSize="5" Height="800" LayerCounter="9"
@@ -52,11 +52,12 @@ Modified: 2015-04-13 09:40
                     Id="UnitMd" Left="90.0" Name="" Top="130.0"
                     Visibility="Visible" Width="300.0">
                     <Group Name="binds">
-                        <Bind Description="ValueBind" Name="UnitMd">
+                        <Bind Description="ValueBind" Name="UnitMd" matrix="">
                             <Expose ExposedAttribute="Name" Name="ValueBind"/>
                         </Bind>
                         <Bind Description="PriBind"
-                            Name="UnitMd.ActiveCommandPriority" PreventDefault="True">
+                            Name="UnitMd.ActiveCommandPriority"
+                            PreventDefault="True" matrix="">
                             <Expose ExposedAttribute="Name" Name="ForceBind"/>
                         </Bind>
                     </Group>
@@ -199,10 +200,11 @@ Modified: 2015-04-13 09:40
                     Id="EffOcc" Left="80.0" Name="" Top="120.0"
                     Visibility="Visible" Width="300.0">
                     <Group Name="binds">
-                        <Bind Description="ValueBind" Name="EffOcc">
+                        <Bind Description="ValueBind" Name="EffOcc" matrix="">
                             <Expose ExposedAttribute="Name" Name="ValueBind"/>
                         </Bind>
-                        <Bind Description="PriBind" Name="EffOcc.ActiveCommandPriority">
+                        <Bind Description="PriBind"
+                            Name="EffOcc.ActiveCommandPriority" matrix="">
                             <Expose ExposedAttribute="Name" Name="ForceBind"/>
                         </Bind>
                     </Group>
@@ -334,10 +336,11 @@ Modified: 2015-04-13 09:40
                     ContentWidth="300" Group="Tl" Height="20.0" Id="Tl"
                     Left="60.0" Name="" Top="100.0" Visibility="Visible" Width="300.0">
                     <Group Name="binds">
-                        <Bind Description="ValueBind" Name="Tl">
+                        <Bind Description="ValueBind" Name="Tl" matrix="">
                             <Expose ExposedAttribute="Name" Name="ValueBind"/>
                         </Bind>
-                        <Bind Description="PriBind" Name="Tl.ActiveCommandPriority">
+                        <Bind Description="PriBind"
+                            Name="Tl.ActiveCommandPriority" matrix="">
                             <Expose ExposedAttribute="Name" Name="ForceBind"/>
                         </Bind>
                     </Group>
@@ -645,7 +648,7 @@ Modified: 2015-04-13 09:40
                     Id="RmTmpBsCspt" Left="70.0" Name="" Top="110.0"
                     Visibility="Visible" Width="300.0">
                     <Group Name="binds">
-                        <Bind Description="ValueBind" Name="RmTmpBsCspt">
+                        <Bind Description="ValueBind" Name="RmTmpBsCspt" matrix="">
                             <Expose ExposedAttribute="Name" Name="ValueBind"/>
                         </Bind>
                     </Group>
@@ -778,7 +781,7 @@ Modified: 2015-04-13 09:40
                     Id="RmTmpBsHspt" Left="80.0" Name="" Top="120.0"
                     Visibility="Visible" Width="300.0">
                     <Group Name="binds">
-                        <Bind Description="ValueBind" Name="RmTmpBsHspt">
+                        <Bind Description="ValueBind" Name="RmTmpBsHspt" matrix="">
                             <Expose ExposedAttribute="Name" Name="ValueBind"/>
                         </Bind>
                     </Group>
@@ -911,7 +914,7 @@ Modified: 2015-04-13 09:40
                     Id="TmpSuSpt" Left="90.0" Name="" Top="130.0"
                     Visibility="Visible" Width="300.0">
                     <Group Name="binds">
-                        <Bind Description="ValueBind" Name="TmpSuSpt">
+                        <Bind Description="ValueBind" Name="TmpSuSpt" matrix="">
                             <Expose ExposedAttribute="Name" Name="ValueBind"/>
                         </Bind>
                     </Group>
@@ -1044,7 +1047,7 @@ Modified: 2015-04-13 09:40
                     Id="TmpSbSpt" Left="100.0" Name="" Top="140.0"
                     Visibility="Visible" Width="300.0">
                     <Group Name="binds">
-                        <Bind Description="ValueBind" Name="TmpSbSpt">
+                        <Bind Description="ValueBind" Name="TmpSbSpt" matrix="">
                             <Expose ExposedAttribute="Name" Name="ValueBind"/>
                         </Bind>
                     </Group>
@@ -1177,7 +1180,7 @@ Modified: 2015-04-13 09:40
                     Id="AirFlSptMin" Left="110.0" Name="" Top="150.0"
                     Visibility="Visible" Width="300.0">
                     <Group Name="binds">
-                        <Bind Description="ValueBind" Name="AirFlSptMin">
+                        <Bind Description="ValueBind" Name="AirFlSptMin" matrix="">
                             <Expose ExposedAttribute="Name" Name="ValueBind"/>
                         </Bind>
                     </Group>
@@ -1310,7 +1313,7 @@ Modified: 2015-04-13 09:40
                     Id="AirFlSptMax" Left="120.0" Name="" Top="160.0"
                     Visibility="Visible" Width="300.0">
                     <Group Name="binds">
-                        <Bind Description="ValueBind" Name="AirFlSptMax">
+                        <Bind Description="ValueBind" Name="AirFlSptMax" matrix="">
                             <Expose ExposedAttribute="Name" Name="ValueBind"/>
                         </Bind>
                     </Group>
@@ -1443,7 +1446,8 @@ Modified: 2015-04-13 09:40
                     Id="AirFlSptHtgMin" Left="120.0" Name="" Top="160.0"
                     Visibility="Visible" Width="300.0">
                     <Group Name="binds">
-                        <Bind Description="ValueBind" Name="AirFlSptHtgMin">
+                        <Bind Description="ValueBind"
+                            Name="AirFlSptHtgMin" matrix="">
                             <Expose ExposedAttribute="Name" Name="ValueBind"/>
                         </Bind>
                     </Group>
@@ -1576,7 +1580,8 @@ Modified: 2015-04-13 09:40
                     Id="AirFlSptHtgMax" Left="130.0" Name="" Top="170.0"
                     Visibility="Visible" Width="300.0">
                     <Group Name="binds">
-                        <Bind Description="ValueBind" Name="AirFlSptHtgMax">
+                        <Bind Description="ValueBind"
+                            Name="AirFlSptHtgMax" matrix="">
                             <Expose ExposedAttribute="Name" Name="ValueBind"/>
                         </Bind>
                     </Group>
@@ -1709,7 +1714,8 @@ Modified: 2015-04-13 09:40
                     Id="AirFlSptStbyMin" Left="130.0" Name=""
                     Top="170.0" Visibility="Visible" Width="300.0">
                     <Group Name="binds">
-                        <Bind Description="ValueBind" Name="AirFlSptStbyMin">
+                        <Bind Description="ValueBind"
+                            Name="AirFlSptStbyMin" matrix="">
                             <Expose ExposedAttribute="Name" Name="ValueBind"/>
                         </Bind>
                     </Group>
@@ -1842,7 +1848,8 @@ Modified: 2015-04-13 09:40
                     Id="AirFlSptStbyMax" Left="140.0" Name=""
                     Top="180.0" Visibility="Visible" Width="300.0">
                     <Group Name="binds">
-                        <Bind Description="ValueBind" Name="AirFlSptStbyMax">
+                        <Bind Description="ValueBind"
+                            Name="AirFlSptStbyMax" matrix="">
                             <Expose ExposedAttribute="Name" Name="ValueBind"/>
                         </Bind>
                     </Group>
@@ -2034,7 +2041,7 @@ var main = {
 		e.preventDefault();
 		var bind = e.getTarget(),
 			attbList = bind.attributes;
-			
+				
 		for(var i = 0, max = attbList.length; i < max; i += 1) {
 			var attb = attbList.item(i).nodeName;
 			if(this.models.hasOwnProperty(attb)) {
@@ -2238,6 +2245,9 @@ var matrixCtrl = {
  		
  		// stack the groups
  		this.stack();
+ 		
+ 		// setup bind manager
+		this.bm = Object.create(bindManager);
  	},
  	
  	click: function(e) {
@@ -2261,6 +2271,11 @@ var matrixCtrl = {
 			} else if(group.rows.hasOwnProperty(parentId)) {
 				group.rows[parentId].click();
 			}
+		}
+		
+		// display properties
+		if(this.bm.hasOwnProperty(targetName)) {
+			this.bm[targetName].displayProperties();
 		}
  	},
  	
@@ -2315,6 +2330,10 @@ var matrixCtrl = {
  			// advance the name to the next object
  			name = this.groups[name].next;
  		}
+ 	},
+ 	
+ 	update: function(e) {
+ 		this.bm.update(e);
  	}
  };
  
@@ -2444,6 +2463,73 @@ var rowObject = {
  	}
 };
  
+/**==========================================================================================
+ * Bind Object
+ */
+var bindObject = {
+	init: function(node) {
+		this.node = node;
+		if(this.node) {
+			this.fbn = this.node.getFullBindName();
+			this.name = String(this.node.getAttribute("Name"));
+		}
+	},
+	enableUpdates: function(){
+		try {
+			if(this.node) {
+				this.node.setAttribute("DynamicUpdates", "Enable");
+			}
+		}
+		catch(err) {
+		}
+	},
+	disableUpdates: function() {
+		try {
+			if(this.node) {
+				this.node.setAttribute("DynamicUpdates", "Disable");
+			}
+		}
+		catch(err) {
+		}
+	},
+	displayProperties: function() {
+		if(this.fbn) {
+			invoke(this.fbn,"EditProperties");
+		}
+	},
+	relinquish: function() {
+		try {
+			if(this.fbn) {
+				setValue(this.fbn,null);	
+			}
+		}
+		catch(err) {
+		}
+	},
+	write: function(val) {
+		try {
+			if(this.fbn) {
+				setValue(this.fbn, val);
+			}
+		}
+		catch(err) {
+		}
+	}
+};
+
+/**==========================================================================================
+ * Bind Manager Object
+ */
+var bindManager = {
+	update: function(e) {
+		var bind = e.getTarget(),
+			name = String(bind.getAttribute("Name"));
+		
+		this[name] = Object.create(bindObject);
+		this[name].init(bind);
+	}
+}; 
+
 /**==========================================================================================
  * Value Ctrl
  */
@@ -2749,74 +2835,6 @@ var bgdCtrl = {
 		this.rct.setStrokeWidth(strokeWidth);
 	}
 };
-
-/**==========================================================================================
- * Bind Object
- */
-var bindObject = {
-	init: function(node) {
-		this.node = node;
-		if(this.node) {
-			this.fbn = this.node.getFullBindName();
-			this.name = String(this.node.getAttribute("Name"));
-		}
-	},
-	enableUpdates: function(){
-		try {
-			if(this.node) {
-				this.node.setAttribute("DynamicUpdates", "Enable");
-			}
-		}
-		catch(err) {
-		}
-	},
-	disableUpdates: function() {
-		try {
-			if(this.node) {
-				this.node.setAttribute("DynamicUpdates", "Disable");
-			}
-		}
-		catch(err) {
-		}
-	},
-	displayProperties: function() {
-		if(this.fbn) {
-			invoke(this.fbn,"EditProperties");
-		}
-	},
-	relinquish: function() {
-		try {
-			if(this.fbn) {
-				setValue(this.fbn,null);	
-			}
-		}
-		catch(err) {
-		}
-	},
-	write: function(val) {
-		try {
-			if(this.fbn) {
-				setValue(this.fbn, val);
-			}
-		}
-		catch(err) {
-		}
-	}
-};
-
-/**==========================================================================================
- * Bind Manager Object
- */
-var bindManager = {
-	update: function(e) {
-		var bind = e.getTarget(),
-			dscr = String(bind.getAttribute("Description"));
-		
-		this[dscr] = Object.create(Bind);
-		this[dscr].init(bind);
-	}
-}; 
-
 
 /**==========================================================================================
  * Animate Object
