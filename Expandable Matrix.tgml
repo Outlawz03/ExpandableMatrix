@@ -2,7 +2,7 @@
 
 <!--[DocumentInformation]
 Created: 2012-11-12 15:15
-Modified: 2015-04-13 10:04
+Modified: 2015-04-13 10:37
 -->
 <?tgml version="1.21"?><Tgml Author="MRB" ComponentCounter="52"
     GridSize="5" Height="800" LayerCounter="9"
@@ -473,10 +473,11 @@ Modified: 2015-04-13 10:04
                     Id="RmOvr" Left="70.0" Name="" Top="110.0"
                     Visibility="Visible" Width="300.0">
                     <Group Name="binds">
-                        <Bind Description="ValueBind" Name="RmOvr">
+                        <Bind Description="ValueBind" Name="RmOvr" matrix="">
                             <Expose ExposedAttribute="Name" Name="ValueBind"/>
                         </Bind>
-                        <Bind Description="PriBind" Name="RmOvr.ActiveCommandPriority">
+                        <Bind Description="PriBind"
+                            Name="RmOvr.ActiveCommandPriority" matrix="">
                             <Expose ExposedAttribute="Name" Name="ForceBind"/>
                         </Bind>
                     </Group>
@@ -2334,6 +2335,18 @@ var matrixCtrl = {
  	
  	update: function(e) {
  		this.bm.update(e);
+ 		
+ 		var target = e.getTarget();
+ 		var targetName = String(target.getAttribute("Name"));
+ 		var baseName = targetName.split(".")[0];
+ 		
+ 		// search through each group for the matching component
+		for(var key in this.groups) {
+			var group = this.groups[key];			
+			if(group.rows.hasOwnProperty(baseName)) {
+ 				group.rows[baseName].update(e);
+			}
+		}
  	}
  };
  
@@ -2449,8 +2462,24 @@ var rowObject = {
  		
  		// get the background rectangle for hover indication
  		this.bgd = this.node.getChildRecursive("bgd");
+ 		
+ 		// get value text
+ 		this.txtValue = Object.create(valueObject);
+ 		this.txtValue.init(this.node.getChildRecursive("txtValue"));
+ 		
+ 		// get force icon
+ 		// get alarm icon
  	},
  	
+ 	update: function(e) {
+ 		var bind = e.getTarget();
+ 		var bindName = String(bind.getAttribute("Name"));
+ 		
+ 		if(bindName.split(".").length === 1) {
+ 			this.txtValue.update(e);
+ 		}
+ 	},
+ 	 	
  	click: function() {
  	},
  	
@@ -2531,9 +2560,9 @@ var bindManager = {
 }; 
 
 /**==========================================================================================
- * Value Ctrl
+ * Value Object
  */
- var valueCtrl = {
+ var valueObject = {
  	init: function(node) { 		
  		var type = "Text";
  		if(node.hasAttribute("Type")) {
@@ -2542,19 +2571,19 @@ var bindManager = {
  		
  		switch(type) {
 		case "Analog":
-			this.txt = Object.create(AnalogCtrl);
+			this.txt = Object.create(analogCtrl);
 			break;
 		case "Digital":
-			this.txt = Object.create(DigitalCtrl);
+			this.txt = Object.create(digitalCtrl);
 			break;
 		case "Multi":
-			this.txt = Object.create(MultiCtrl);
+			this.txt = Object.create(multiCtrl);
 			break;
 		case "Enum":
-			this.txt = Object.create(EnumCtrl);
+			this.txt = Object.create(multiCtrl);
 			break;
 		default:
-			this.txt = Object.create(TextCtrl);
+			this.txt = Object.create(textCtrl);
 			break;				
 		}
 		
@@ -2566,9 +2595,9 @@ var bindManager = {
  };
  
 /**==========================================================================================
- * Force Ctrl
+ * Force Object
  */
- var forceCtrl = {
+ var forceObject = {
  	init: function(node) {
  		this.cmp = Object.create(Component);
  		this.cmp.init(node);
@@ -2608,9 +2637,9 @@ var bindManager = {
  };
  
 /**==========================================================================================
- * Alarm Ctrl
+ * Alarm Object
  */
-var alarmCtrl = {
+var alarmObject = {
 	init: function(node) {
 		this.cmp = Object.create(Component);
  		this.cmp.init(node);
@@ -2647,7 +2676,7 @@ var analogCtrl = {
 		this.suffix = "";
 		this.showUnits = true;
 		
-		this.txt = Object.create(TextBox);
+		this.txt = Object.create(textBoxObject);
 		this.txt.init(node);
 		
 		if(node.hasAttribute("Decimals")) {		
@@ -2669,6 +2698,10 @@ var analogCtrl = {
 	update: function(e) {
 		var value = +e.getValue(),
 			units = String(e.getUnit());
+		
+		if(units === "null") {
+			units = "";
+		}
 			
 		this.txt.setContent(this.prefix + value.toFixed(this.decimals) + this.suffix + (this.showUnits ? " " + units : ""));
 	}
@@ -2681,7 +2714,7 @@ var digitalCtrl = {
 	init: function(node) {
 		this.states = [];
 		
-		this.txt = Object.create(TextBox);
+		this.txt = Object.create(textBoxObject);
 		this.txt.init(node);
 				
 		i = 2;
@@ -2702,32 +2735,11 @@ var multiCtrl = {
 	init: function(node) {
 		this.states = [];
 		
-		this.txt = Object.create(TextBox);
+		this.txt = Object.create(textBoxObject);
 		this.txt.init(node);
-				
-		i = 1;
-		while(node.hasAttribute("State" + i)) {
-			this.states[i] = String(node.getAttribute("State" + i));
-			i += 1;
-		}		
-	},
-	update: function(e) {
-		var content = this.states[+e.getValue()];
-		this.txt.setContent(content);
-	}
-};
-
-/**==========================================================================================
- * Enum Control
- */
-var enumCtrl = {
-	init: function(node) {
-		this.states = [];
 		
-		this.txt = Object.create(TextBox);
-		this.txt.init(node);
-				
-		i = 0;
+		var i = node.hasAttribute("State0") ? 0 : 1;
+
 		while(node.hasAttribute("State" + i)) {
 			this.states[i] = String(node.getAttribute("State" + i));
 			i += 1;
@@ -2744,7 +2756,7 @@ var enumCtrl = {
  */
 var textCtrl = {
 	init: function(node) {
-		this.txt = Object.create(TextBox);
+		this.txt = Object.create(textBoxObject);
 		this.txt.init(node);		
 	},
 	update: function(e) {
