@@ -2,7 +2,7 @@
 
 <!--[DocumentInformation]
 Created: 2012-11-12 15:15
-Modified: 2015-04-14 08:33
+Modified: 2015-04-14 09:11
 -->
 <?tgml version="1.21"?><Tgml Author="MRB" ComponentCounter="52"
     GridSize="5" Height="800" LayerCounter="9"
@@ -2367,6 +2367,14 @@ var groupObject = {
  		// store node
  		this.node = node;
  		
+ 		// get a list of binds
+ 		var bindList = this.node.getElementsByTagName("Bind");
+ 		this.binds = [];
+ 		for(var i = 0, max = bindList.length; i < max; i += 1) {
+ 			var child = bindList.item(i);
+ 			this.binds.push(child);
+ 		}
+ 		
  		// create next pointer
  		this.next = null;
  		
@@ -2382,7 +2390,7 @@ var groupObject = {
  		this.headerHeight = +this.node.getChild("header").getAttribute("Height");
  		
  		// get initial visibility
- 		this.visibility = getBool(this.node.getAttribute("initiallyExpanded"));		
+ 		this.visibility = getBool(this.node.getAttribute("initiallyExpanded"));
  		
  		this.rows = {};
  		var children = this.rowsGroup.getChildNodes();
@@ -2429,6 +2437,7 @@ var groupObject = {
  		this.rowsGroup.setAttribute("Visibility", this.visibility ? "Visible" : "Hidden");
  		this.arrowRotate.setAttribute("Angle", this.visibility ? "0.0" : "180.0");
  		this.stack();
+ 		this.setBinds();
  	},
  	
  	stack: function() {
@@ -2455,8 +2464,16 @@ var groupObject = {
  		
  		// set bgd height
  		this.bgd.setAttribute("Height", this.height);
- 	}
+ 	},
  	
+ 	setBinds: function() {
+ 		for(var i = 0, max = this.binds.length; i < max; i += 1) {
+ 			try {
+				this.binds[i].setAttribute("DynamicUpdates", this.visibility ? "Enable" : "Disable");
+			} catch(err) {
+			}
+		}
+	}
  };
  
 /**==========================================================================================
