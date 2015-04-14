@@ -2,7 +2,7 @@
 
 <!--[DocumentInformation]
 Created: 2012-11-12 15:15
-Modified: 2015-04-13 10:37
+Modified: 2015-04-14 08:33
 -->
 <?tgml version="1.21"?><Tgml Author="MRB" ComponentCounter="52"
     GridSize="5" Height="800" LayerCounter="9"
@@ -2252,6 +2252,7 @@ var matrixCtrl = {
  	},
  	
  	click: function(e) {
+ 		var btn = +e.getButton();
  		var target = e.getTarget();
  		var targetName = String(target.getAttribute("Name"));
  		var parentId = String(target.getParentNode().getAttribute("Id"));
@@ -2264,20 +2265,28 @@ var matrixCtrl = {
 		
 		this.stack();
 		
-		// search through each group for the matching component
-		for(var key in this.groups) {
-			var group = this.groups[key];			
-			if(group.rows.hasOwnProperty(targetName)) {
- 				group.rows[targetName].click();
-			} else if(group.rows.hasOwnProperty(parentId)) {
-				group.rows[parentId].click();
-			}
-		}
-		
 		// display properties
 		if(this.bm.hasOwnProperty(targetName)) {
-			this.bm[targetName].displayProperties();
-		}
+			if(btn === 0) {				
+				this.bm[targetName].displayProperties();
+			} else if(btn === 2) {
+				// attempt unforce
+				this.bm[targetName].unForce();
+				
+				// attempt outofservice
+				if(this.bm.hasOwnProperty(targetName + ".OutOfService")) {
+					this.bm[targetName + ".OutOfService"].inService();
+				}
+				
+				// attempt relinquish
+				for(var i = 1, max = 16; i <= max; i += 1) {
+					var priority = ".Priority" + i;
+					if(this.bm.hasOwnProperty(targetName + priority)) {
+						this.bm[targetName + priority].relinquish();
+					}
+				}
+			}
+		}		
  	},
  	
  	over: function(e) {
@@ -2479,9 +2488,6 @@ var rowObject = {
  			this.txtValue.update(e);
  		}
  	},
- 	 	
- 	click: function() {
- 	},
  	
  	over: function() {
  		this.bgd.setAttribute("Visibility", "Visible");
@@ -2526,10 +2532,26 @@ var bindObject = {
 			invoke(this.fbn,"EditProperties");
 		}
 	},
+	unForce: function() {
+		try {
+			if(this.fbn) {
+				setForce(this.fbn, false);
+			}
+		} catch(err) {
+		}
+	},
+	inService: function() {
+		try {
+			if(this.fbn) {
+				setValue(this.fbn, false);	
+			}
+		} catch(err) {
+		}
+	},
 	relinquish: function() {
 		try {
 			if(this.fbn) {
-				setValue(this.fbn,null);	
+				setValue(this.fbn, null);	
 			}
 		}
 		catch(err) {
