@@ -2,7 +2,7 @@
 
 <!--[DocumentInformation]
 Created: 2012-11-12 15:15
-Modified: 2015-04-14 09:58
+Modified: 2015-09-28 15:34
 -->
 <?tgml version="1.21"?><Tgml Author="MRB" ComponentCounter="52"
     GridSize="5" Height="800" LayerCounter="9"
@@ -3020,6 +3020,12 @@ var getChildrenByAttribute = function(node, attb){
 	return v;
 }
 
+if (!String.prototype.trim) {
+  String.prototype.trim = function () {
+    return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+  };
+}
+
 if (!Object.create) {
 	Object.create = function(base) {
 		function F () {};
@@ -3472,37 +3478,43 @@ var bindManager = {
  		this.ani = Object.create(animateObject);
  		this.ani.init(node.getChildRecursive("aniBlink"));
  		this.forced = false;
+ 		this.bForced = false;
  	},
  	update: function(e) {
  		var name = String(e.getTarget().getAttribute("Name")),
  			lastName = String(name.split(".").splice(-1)).replace(/\d/g,''),
- 			value = e.getValue();
+ 			value = e.getValue(),
+ 			dscr = String(e.getTarget().getAttribute("Description"));
  		 
- 		this.forced = +e.getStatus() === 3;
- 		if(name.split(".").length > 1) {
-			switch(lastName) {
-			case "OutOfService":
-				this.forced = getBool(value);		
-				break;
-			case "Priority":
-				if(value !== null) {
-					this.forced = true;
-				}
-				if(typeof(value) === "undefined") {
-					this.forced = false;
-				}
-				break;
-			case "ActiveCommandPriority":
-				if(value !== null && value < 10) {
-					this.forced = true;
-				}
-				break;
-			default:
+ 		if(dscr === "ValueBind") {	
+ 			this.forced = +e.getStatus() === 3;
+ 		}
+		switch(lastName) {
+		case "OutOfService":
+			this.bForced = getBool(value);		
+			break;
+		case "Priority":
+			if(value !== null) {
+				this.bForced = true;
+			} else {
+				this.bForced = false;
 			}
+			if(typeof(value) === "undefined") {
+				this.bForced = false;
+			}
+			break;
+		case "ActiveCommandPriority":
+			if(value !== null && value < 10) {
+				this.bForced = true;
+			} else {
+				this.bForced = false;
+			}
+			break;
+		default:
 		}
 
- 		this.cmp.setVisibility(this.forced);
- 		this.ani.setAnimation(this.forced);	
+ 		this.cmp.setVisibility(this.forced || this.bForced);
+ 		this.ani.setAnimation(this.forced || this.bForced);	
  	}
  };
  
@@ -3611,7 +3623,7 @@ var multiCtrl = {
 		this.txt = Object.create(textBoxObject);
 		this.txt.init(node);
 		
-		var i = node.hasAttribute("State0") ? 0 : 1;
+		var i = node.hasAttribute("State-1") ? -1 : node.hasAttribute("State0") ? 0 : 1;
 
 		while(node.hasAttribute("State" + i)) {
 			this.states[i] = String(node.getAttribute("State" + i));
