@@ -2,7 +2,7 @@
 
 <!--[DocumentInformation]
 Created: 2012-11-12 15:15
-Modified: 2015-09-28 15:34
+Modified: 2015-09-29 19:57
 -->
 <?tgml version="1.21"?><Tgml Author="MRB" ComponentCounter="52"
     GridSize="5" Height="800" LayerCounter="9"
@@ -3060,6 +3060,8 @@ var matrixCtrl = {
  					// tie the tail to the head
  					this.groupsTail = this.groupsHead;
  				}
+ 				
+ 				this.groups[this.groupsTail].next = null;
  				
  				// make the tails next equal the current object
  				this.groups[this.groupsTail].next = name;
